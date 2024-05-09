@@ -5,7 +5,7 @@ const uploadService = require("../services/upload.service")
 module.exports = {
   /**
   * @swagger
-  * /fetchAll:
+  * /upload/fetchAll:
   *   get:
   *     summary: Get all images
   *     description: get all images.
@@ -33,7 +33,7 @@ module.exports = {
   },
   /**
   * @swagger
-  * /fetch/{id}:
+  * /upload/fetch/{id}:
   *   get:
   *     summary: Get image
   *     description: get image
@@ -69,7 +69,7 @@ module.exports = {
   },
   /**
   * @swagger
-  * /create:
+  * /upload/create:
   *   post:
   *     summary: Upload image
   *     description: upload image
@@ -107,7 +107,7 @@ module.exports = {
   },
   /**
   * @swagger
-  * /createMulti:
+  * /upload/createMulti:
   *   post:
   *     summary: Upload images
   *     description: upload images
@@ -147,7 +147,7 @@ module.exports = {
   },
   /**
   * @swagger
-  * /delete/{id}:
+  * /upload/delete/{id}:
   *   delete:
   *     summary: Delete image
   *     description: delete image

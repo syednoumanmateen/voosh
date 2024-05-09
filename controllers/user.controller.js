@@ -4,36 +4,8 @@ const userService = require("../services/user.service")
 
 module.exports = {
   /**
-  * @swagger
-  * /message/fetchAll:
-  *   get:
-  *     summary: Get all users
-  *     description: get all users
-  *     security:
-  *       - cookieAuth: []
-  *     responses:
-  *       200:
-  *         description: Users fetched successfully
-  *       500:
-  *         description: Server error
-  *       400:
-  *         description: Bad request
-  *       401:
-  *         description: Unauthorized access
-  *       404:
-  *         description: Not found
-  */
-  fetchAllUserMessage: async (req, res) => {
-    try {
-      const result = await userService.fetchAllUserMessage(req.userId)
-      res.status(statusCode.SUCCESS).json(response.successWith(result, statusCode.SUCCESS, "Users fetched successfully", "Users fetched successfully"))
-    } catch (e) {
-      res.status(e.errorCode).json(response.errorWith(e.errorCode, e.message, e.displayMessage, e.customStatusCode, e.customData));
-    }
-  },
-  /**
  * @swagger
- * /fetchAll:
+ * /user/fetchAll:
  *   get:
  *     summary: Get all users
  *     description: get all users
@@ -61,7 +33,7 @@ module.exports = {
   },
   /**
  * @swagger
- * /fetch:
+ * /user/fetch:
  *   get:
  *     summary: Get user
  *     description: get user
@@ -89,7 +61,7 @@ module.exports = {
   },
   /**
   * @swagger
-  * /signUp:
+  * /user/signUp:
   *   post:
   *     summary: Sign Up
   *     description: sign up
@@ -138,7 +110,7 @@ module.exports = {
   },
   /**
   * @swagger
-  * /signIn:
+  * /user/signIn:
   *   post:
   *     summary: Sign In
   *     description: sign in
@@ -178,7 +150,7 @@ module.exports = {
   },
   /**
   * @swagger
-  * /forgotPassword:
+  * /user/forgotPassword:
   *   post:
   *     summary: Forgot password
   *     description: forgot password
@@ -215,7 +187,7 @@ module.exports = {
   },
   /**
   * @swagger
-  * /resetPassword:
+  * /user/resetPassword:
   *   post:
   *     summary: Reset password
   *     description: reset password
@@ -258,7 +230,7 @@ module.exports = {
   },
   /**
   * @swagger
-  * /reload:
+  * /user/reload:
   *   post:
   *     summary: Reload
   *     description: reload
@@ -295,7 +267,7 @@ module.exports = {
   },
   /**
   * @swagger
-  * /signOut:
+  * /user/signOut:
   *   post:
   *     summary: Sign out
   *     description: sign out
@@ -323,7 +295,7 @@ module.exports = {
   },
   /**
   * @swagger
-  * /update:
+  * /user/update:
   *   put:
   *     summary: Update user
   *     description: update user
@@ -369,81 +341,7 @@ module.exports = {
   },
   /**
   * @swagger
-  * /update/role:
-  *   put:
-  *     summary: Update user role
-  *     description: update user role
-  *     security:
-  *       - cookieAuth: []
-  *     requestBody:
-  *       required: true
-  *       content:
-  *         application/json:
-  *           schema:
-  *             type: object
-  *             properties:
-  *               role:
-  *                 type: string
-  *     responses:
-  *       200:
-  *         description: User role updated successfully
-  *       500:
-  *         description: Server error
-  *       400:
-  *         description: Bad request
-  *       401:
-  *         description: Unauthorized access
-  *       404:
-  *         description: Not found
-  */
-  updateUserRole: async (req, res) => {
-    try {
-      const result = await userService.updateUseRole(req.userId, req.body)
-      res.status(statusCode.SUCCESS).json(response.successWith(result, statusCode.SUCCESS, "User role updated successfully", "User role updated successfully"))
-    } catch (e) {
-      res.status(e.errorCode).json(response.errorWith(e.errorCode, e.message, e.displayMessage, e.customStatusCode, e.customData));
-    }
-  },
-  /**
- * @swagger
- * /update/profileAccess:
- *   put:
- *     summary: Update user role
- *     description: update user role
- *     security:
- *       - cookieAuth: []
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               isPublicProfile:
- *                 type: boolean
- *     responses:
- *       200:
- *         description: User profile access updated successfully
- *       500:
- *         description: Server error
- *       400:
- *         description: Bad request
- *       401:
- *         description: Unauthorized access
- *       404:
- *         description: Not found
- */
-  updateUserProfileAccess: async (req, res) => {
-    try {
-      const result = await userService.updateUserProfileAccess(req.userId, req.body)
-      res.status(statusCode.SUCCESS).json(response.successWith(result, statusCode.SUCCESS, "User profile access updated successfully", "User profile access updated successfully"))
-    } catch (e) {
-      res.status(e.errorCode).json(response.errorWith(e.errorCode, e.message, e.displayMessage, e.customStatusCode, e.customData));
-    }
-  },
-  /**
-  * @swagger
-  * /delete:
+  * /user/delete:
   *   delete:
   *     summary: Delete user
   *     description: delete user

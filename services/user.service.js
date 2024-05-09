@@ -116,22 +116,6 @@ module.exports = {
       throw customException.error(statusCode.SERVER_ERROR, e.message || constants.unknownErrorMessage, e.displayMessage || constants.unknownErrorMessage)
     }
   },
-  updateUseRole: async (id, data) => {
-    try {
-      await userQuery.updateUser(id, data)
-      return true
-    } catch (e) {
-      throw customException.error(statusCode.SERVER_ERROR, e.message || constants.unknownErrorMessage, e.displayMessage || constants.unknownErrorMessage)
-    }
-  },
-  updateUserProfileAccess: async (id, data) => {
-    try {
-      await userQuery.updateUser(id, data)
-      return true
-    } catch (e) {
-      throw customException.error(statusCode.SERVER_ERROR, e.message || constants.unknownErrorMessage, e.displayMessage || constants.unknownErrorMessage)
-    }
-  },
   deleteUser: async (id) => {
     try {
       await userQuery.deleteUser(id)
