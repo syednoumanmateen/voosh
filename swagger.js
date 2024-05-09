@@ -10,7 +10,7 @@ const options = {
 		},
 		servers: [
 			{
-				url: `http://localhost:${process.env.PORT}/api`,
+				url: `${process.env.PORT}/api`,
 				description: "API Documentation",
 				variable: {
 					default: "api-swagger",
