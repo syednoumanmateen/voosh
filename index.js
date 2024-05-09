@@ -17,6 +17,9 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 require("./routes/user.route")(router)
 require("./routes/upload.route")(router)
 app.use(`/api/`, router);
+app.use(`/`, (req, res) => {
+  res.send("Welcome to Voosh")
+});
 
 app.listen(port, () => {
   connectDB(mongoose)
