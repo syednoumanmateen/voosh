@@ -17,6 +17,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 require("./routes/user.route")(router)
 require("./routes/upload.route")(router)
 app.use(`/api/`, router);
+app.use(`/healthCheck`, (req, res) => res.send("Helth check"));
 
 app.listen(port, () => {
   connectDB(mongoose)

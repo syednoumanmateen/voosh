@@ -5,13 +5,6 @@ const uploadQuery = require("../queries/upload.query")
 const imageUpload = require("../utility/imageUpload")
 
 module.exports = {
-  fetchAllImage: async () => {
-    try {
-      return await uploadQuery.fetchAllImage()
-    } catch (e) {
-      throw customException.error(statusCode.SERVER_ERROR, e.message || constants.unknownErrorMessage, e.displayMessage || constants.unknownErrorMessage)
-    }
-  },
   fetchImage: async (params) => {
     try {
       return await uploadQuery.fetchImageById(params.id)

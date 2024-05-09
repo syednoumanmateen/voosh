@@ -6,23 +6,6 @@ const Upload = require("../models/upload.model")
 const imageUpload = require("../utility/imageUpload")
 
 module.exports = {
-  fetchAllImage: async () => {
-    try {
-      let result = await Upload.find({})
-      if (result && result.length) {
-        result = await Promise.all(result.map(async (i) => {
-          const obj = i.toObject()
-          obj.upload = await imageUpload.bufferToUrl(obj.upload.data)
-          return obj
-        }))
-        return result
-      }
-      throw customException.error(statusCode.NOT_FOUND, "Images not found", "Images not found")
-    } catch (e) {
-      if (e instanceof customException.customException) throw e;
-      throw customException.error(statusCode.SERVER_ERROR, e.message || constants.unknownErrorMessage, e.displayMessage || constants.unknownErrorMessage)
-    }
-  },
   fetchImageById: async (id) => {
     try {
       const objectId = new mongoose.Types.ObjectId(id);

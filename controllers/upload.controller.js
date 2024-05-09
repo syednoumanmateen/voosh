@@ -5,34 +5,6 @@ const uploadService = require("../services/upload.service")
 module.exports = {
   /**
   * @swagger
-  * /upload/fetchAll:
-  *   get:
-  *     summary: Get all images
-  *     description: get all images.
-  *     security:
-  *       - cookieAuth: []
-  *     responses:
-  *       200:
-  *         description: Images fetched successfully
-  *       500:
-  *         description: Server error
-  *       400:
-  *         description: Bad request
-  *       401:
-  *         description: Unauthorized access
-  *       404:
-  *         description: Images not found
-  */
-  fetchAllImage: async (req, res) => {
-    try {
-      const result = await uploadService.fetchAllImage()
-      res.status(statusCode.SUCCESS).json(response.successWith(result, statusCode.SUCCESS, "Images fetched successfully", "Images fetched successfully"))
-    } catch (e) {
-      res.status(e.errorCode).json(response.errorWith(e.errorCode, e.message, e.displayMessage, e.customStatusCode, e.customData));
-    }
-  },
-  /**
-  * @swagger
   * /upload/fetch/{id}:
   *   get:
   *     summary: Get image
