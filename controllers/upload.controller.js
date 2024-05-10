@@ -21,7 +21,7 @@ module.exports = {
   *           format: objectId
   *     responses:
   *       200:
-  *         description:  Image fetched successfully
+  *         description: Image fetched successfully
   *       500:
   *         description: Server error
   *       400:

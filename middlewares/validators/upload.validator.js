@@ -15,7 +15,7 @@ module.exports = {
     validatorErrorHandler(error, dataItems, res, next)
   },
   createImage: async (req, res, next) => {
-    const data = req.params
+    const data = req.file
 
     const joiObject = {
       file: Joi.object({
@@ -36,7 +36,7 @@ module.exports = {
     validatorErrorHandler(error, dataItems, res, next)
   },
   createMultiImage: async (req, res, next) => {
-    const data = req.params
+    const data = req.files
 
     const joiObject = {
       files: Joi.array().items(Joi.object({

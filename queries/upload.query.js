@@ -9,8 +9,7 @@ module.exports = {
   fetchImageById: async (id) => {
     try {
       const objectId = new mongoose.Types.ObjectId(id);
-      const result = await Upload.findOne({ _id: objectId })
-      console.log("🚀 ~ fetchImageById: ~ result:", result)
+      const result = await Upload.findById(objectId)
 
       if (result) {
         const obj = result.toObject()
@@ -50,7 +49,7 @@ module.exports = {
   deleteImage: async (id) => {
     try {
       const objectId = new mongoose.Types.ObjectId(id);
-      const result = await Upload.findOneAndDelete({ _id: objectId })
+      const result = await Upload.findOneAndDelete({ _id: objectId }).lean()
       if (result) {
         return result
       }
