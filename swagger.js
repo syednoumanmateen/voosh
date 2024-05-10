@@ -10,7 +10,7 @@ const options = {
 		},
 		servers: [
 			{
-				url: `${process.env.LOCAL_HOST}/api/`,
+				url: `https://voosh-production.up.railway.app/api/`,
 				description: "API Documentation",
 				variable: {
 					default: "api-swagger",
