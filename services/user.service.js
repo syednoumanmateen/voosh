@@ -16,13 +16,6 @@ module.exports = {
       throw customException.error(statusCode.SERVER_ERROR, e.message || constants.unknownErrorMessage, e.displayMessage || constants.unknownErrorMessage)
     }
   },
-  fetchAllUserMessage: async (userId) => {
-    try {
-      return await userQuery.fetchAllUserMessage(userId)
-    } catch (e) {
-      throw customException.error(statusCode.SERVER_ERROR, e.message || constants.unknownErrorMessage, e.displayMessage || constants.unknownErrorMessage)
-    }
-  },
   fetchUser: async (id) => {
     try {
       return await userQuery.fetchUserById(id)

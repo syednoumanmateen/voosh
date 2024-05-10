@@ -6,12 +6,12 @@ module.exports = {
     const data = req.params
 
     const joiObject = {
-      _id: objectIdSchema().required().label("Invalid _id")
+      id: objectIdSchema().required().label("Invalid id")
     }
 
     const { error } = Joi.object(joiObject).validate(data)
 
-    const dataItems = ["_id"]
+    const dataItems = ["id"]
     validatorErrorHandler(error, dataItems, res, next)
   },
   createImage: async (req, res, next) => {
@@ -60,12 +60,12 @@ module.exports = {
     const data = req.params
 
     const joiObject = {
-      _id: objectIdSchema().required().label("Invalid _id")
+      id: objectIdSchema().required().label("Invalid id")
     }
 
     const { error } = Joi.object(joiObject).validate(data)
 
-    const dataItems = ["_id"]
+    const dataItems = ["id"]
     validatorErrorHandler(error, dataItems, res, next)
   },
 }
