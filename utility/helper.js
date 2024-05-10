@@ -45,11 +45,5 @@ module.exports = {
     } else {
       next();
     }
-  },
-  objectIdSchema: Joi.string().custom((value, helpers) => {
-    if (!ObjectId.isValid(value)) {
-      return helpers.error('any.invalid');
-    }
-    return value;
-  }, 'MongoDB ObjectId')
+  }
 }

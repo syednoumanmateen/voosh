@@ -10,6 +10,7 @@ module.exports = {
     try {
       const objectId = new mongoose.Types.ObjectId(id);
       const result = await Upload.findOne({ _id: objectId })
+      console.log("🚀 ~ fetchImageById: ~ result:", result)
 
       if (result) {
         const obj = result.toObject()

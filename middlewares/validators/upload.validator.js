@@ -1,4 +1,4 @@
-const { validatorErrorHandler, objectIdSchema } = require("../../utility/helper")
+const { validatorErrorHandler } = require("../../utility/helper")
 const Joi = require("joi")
 
 module.exports = {
@@ -6,7 +6,7 @@ module.exports = {
     const data = req.params
 
     const joiObject = {
-      id: objectIdSchema().required().label("Invalid id")
+      id: Joi.string().required().label("Invalid id")
     }
 
     const { error } = Joi.object(joiObject).validate(data)
@@ -60,7 +60,7 @@ module.exports = {
     const data = req.params
 
     const joiObject = {
-      id: objectIdSchema().required().label("Invalid id")
+      id: Joi.string().required().label("Invalid id")
     }
 
     const { error } = Joi.object(joiObject).validate(data)

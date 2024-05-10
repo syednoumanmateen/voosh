@@ -1,4 +1,4 @@
-const { validatorErrorHandler, objectIdSchema } = require("../../utility/helper")
+const { validatorErrorHandler } = require("../../utility/helper")
 const Joi = require("joi")
 
 module.exports = {
@@ -47,7 +47,7 @@ module.exports = {
     const data = req.body
 
     const joiObject = {
-      resetToken: objectIdSchema().required().label("Invalid Reset Token"),
+      resetToken: Joi.string().required().label("Invalid Reset Token"),
       password: Joi.string().required().max(8).label("Invalid Password")
     }
 
@@ -76,7 +76,7 @@ module.exports = {
       email: Joi.string().email().label("Invalid Email"),
       gender: Joi.string().valid("male", "female").label("Invalid Gender"),
       profile: Joi.string().optional().label("Invalid Profile"),
-      role: Joi.string().valid("admin", "user").label("Invalid Role"),
+      role: Joi.string().valid("admin", "user").label("Invalid RobjectIdSchemaole"),
       isPublicProfile: Joi.boolean().label("Invalid Is Public Profile"),
     }
 
