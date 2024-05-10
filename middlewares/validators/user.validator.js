@@ -73,7 +73,6 @@ module.exports = {
 
     const joiObject = {
       name: Joi.string().label("Invalid Name"),
-      email: Joi.string().email().label("Invalid Email"),
       gender: Joi.string().valid("male", "female").label("Invalid Gender"),
       profile: Joi.string().optional().label("Invalid Profile"),
       role: Joi.string().valid("admin", "user").label("Invalid RobjectIdSchemaole"),

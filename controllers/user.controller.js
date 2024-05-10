@@ -310,8 +310,6 @@ module.exports = {
   *             properties:
   *               name:
   *                 type: string
-  *               email:
-  *                 type: string
   *               profile:
   *                 type: string  
   *                 format: objectId

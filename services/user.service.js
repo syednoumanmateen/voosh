@@ -103,6 +103,9 @@ module.exports = {
   },
   updateUser: async (id, data) => {
     try {
+      const { email } = data
+      if (email) throw customException.error(statusCode.BAD_REQUEST, "Email not allowed to update", "Email not allowed to update")
+
       await userQuery.updateUser(id, data)
       return true
     } catch (e) {
